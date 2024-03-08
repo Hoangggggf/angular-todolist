@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
+
 export class AppComponent{
   title = 'To-do list';
   todoworks!: todowork[];
@@ -18,8 +19,21 @@ export class AppComponent{
   };
   addWork() {
     var input= (<HTMLInputElement>document.getElementById("task-input")).value;
-    console.log(input);
-    this.todoworks.push({content:input,completed:true});
+    this.todoworks.push({content:input,completed:false});
     this.cdr.detectChanges();
-  };  
+  };
+  deleteWork(index: number){
+    this.todoworks.splice(index,1);
+    this.cdr.detectChanges();
+  };
+  completeWork(index: number){
+    if (this.todoworks[index].completed == false)
+    {
+    this.todoworks[index].completed= true;
+    }
+    else
+    {
+      this.todoworks[index].completed = false
+    }
+  }
 }

@@ -19,3 +19,6 @@
 ul {
     list-style-type: none;
 }
+.completedwork {
+    text-decoration: line-through;
+}

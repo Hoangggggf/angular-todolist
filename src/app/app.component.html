@@ -8,13 +8,20 @@
     </form>
     <div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
       <div class="Todowork">
-        <input type="checkbox">
+        <input type="checkbox" (change)="completeWork(i)"/>
         <div class="id">{{i + 1}}.</div>
-        <div class="content">{{todowork.content}}</div>
+        <div *ngIf="todowork.completed; else notCompleted">
+          <div class="completedwork">{{todowork.content}}</div>
+        </div>
+        <ng-template #notCompleted>
+          <div class="notcompletedwork">{{todowork.content}}</div>
+        </ng-template>
+
+        <button type="button" class="deleteButton" (click)="deleteWork(i)">Delete</button>
       </div>
     </div>
     <div class="function-button">
-      <button>Delete</button>
+      
     </div>
   </div>
 </div>
