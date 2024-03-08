@@ -3,7 +3,7 @@
         justify-content: center;
         align-items: start;
         height: 100vh;  
-    background-color: transparent;
+    background-color: #f7f7f7;
 }
 h1{
     text-align: center;
@@ -28,11 +28,15 @@ h1{
 }
 .Todolist{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
+    width:100%;
 }
 .Todowork{
     display:flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
 }
 ul {
     list-style-type: none;
@@ -46,12 +50,11 @@ ul {
 .Todowork{
     font-family: Arial, Helvetica, sans-serif;
     border-style:solid;
-    text-indent: 20px;
+    text-indent: 30px;
     border-color: rgb(173, 173, 173);
     border-width: 0.5px;
     display: flex;
-    align-items: center;
-    justify-content:flex-start;
+    align-items:center;
     font-size: 2em;
 }
 input[type="checkbox"]{
@@ -67,8 +70,4 @@ input[type="checkbox"]{
 }
 input[type="checkbox"]:checked {
     background-color: #ff3e3e; /* Change background color when checked */
-}
-.deleteButton{
-    display:flex;
-    align-items: end;
 }

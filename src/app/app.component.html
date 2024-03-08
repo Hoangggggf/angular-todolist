@@ -3,13 +3,13 @@
     <h1>{{ title }}</h1>
     <input type="text" id="task-input" placeholder="What are you doing today?" (keyup.enter)="addWork()">
     <div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
+      <input type="checkbox" (change)="completeWork(i)" />
       <div class="Todowork">
-        <input type="checkbox" (change)="completeWork(i)" />
         <div *ngIf="todowork.completed; else notCompleted">
-          <div class="completedwork">{{todowork.content}}</div>
+          <label class="completedwork">{{todowork.content}}</label>
         </div>
         <ng-template #notCompleted>
-          <div class="notcompletedwork">{{todowork.content}}</div>
+          <label class="notcompletedwork">{{todowork.content}}</label>
         </ng-template>
         <button type="button" class="deleteButton" (click)="deleteWork(i)">Delete</button>
       </div>
