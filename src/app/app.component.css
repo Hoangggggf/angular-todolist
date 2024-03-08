@@ -1,0 +1,21 @@
+.Container#main {
+    display: flex;
+        justify-content: center;
+        align-items: start;
+        height: 100vh;  
+}
+.Header{
+    display:flex;
+    flex-direction: column;
+}
+.Todolist{
+    display:flex;
+    flex-direction: column;
+}
+.Todowork{
+    display:flex;
+    flex-direction: row;
+}
+ul {
+    list-style-type: none;
+}
