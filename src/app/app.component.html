@@ -1,27 +1,21 @@
 <div class="Container" id="main">
   <div class="Header">
     <h1>{{ title }}</h1>
-    <form>
-      <label for="task-input">Add a job here:</label>
-      <input type="text" id="task-input">
-      <button type="button" class="addButton" (click)="addWork()">Add work</button>
-    </form>
+    <input type="text" id="task-input" placeholder="What are you doing today?" (keyup.enter)="addWork()">
     <div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
       <div class="Todowork">
-        <input type="checkbox" (change)="completeWork(i)"/>
-        <div class="id">{{i + 1}}.</div>
+        <input type="checkbox" (change)="completeWork(i)" />
         <div *ngIf="todowork.completed; else notCompleted">
           <div class="completedwork">{{todowork.content}}</div>
         </div>
         <ng-template #notCompleted>
           <div class="notcompletedwork">{{todowork.content}}</div>
         </ng-template>
-
         <button type="button" class="deleteButton" (click)="deleteWork(i)">Delete</button>
       </div>
     </div>
     <div class="function-button">
-      
+
     </div>
   </div>
 </div>

@@ -20,6 +20,7 @@ export class AppComponent{
   addWork() {
     var input= (<HTMLInputElement>document.getElementById("task-input")).value;
     this.todoworks.push({content:input,completed:false});
+    (<HTMLInputElement>document.getElementById("task-input")).value = '';
     this.cdr.detectChanges();
   };
   deleteWork(index: number){
