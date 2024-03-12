@@ -45,12 +45,12 @@ ul {
     text-decoration: line-through;
 }
 .Todolist{
+    width:100%;
     background-color: rgba(171, 171, 171, 0.333);
 }
 .Todowork{
     font-family: Arial, Helvetica, sans-serif;
-    border-style:solid;
-    text-indent: 30px;
+    text-indent: 10px;
     border-color: rgb(173, 173, 173);
     border-width: 0.5px;
     display: flex;
@@ -64,10 +64,30 @@ input[type="checkbox"]{
       width: 40px;
       height: 40px;
       border: 2px solid #999;
-      border-radius: 50%; /* Round the checkbox */
+      border-radius: 50%;
       outline: none;
       cursor: pointer;
 }
 input[type="checkbox"]:checked {
-    background-color: #ff3e3e; /* Change background color when checked */
+    background-color: #ff3e3e;
+}
+.deleteButton{
+    display:none;
+}
+.Todowork:hover .deleteButton{
+    display: inline-block;
+    color:#ff3e3e;
+}
+.function-row{
+    padding-left:20px;
+    display:inline-flex;
+    align-items: center;
+}
+.filters{
+
+}
+.filters li{
+    display:inline;
+    padding-left: 5px;
+    padding-right:5px;
 }

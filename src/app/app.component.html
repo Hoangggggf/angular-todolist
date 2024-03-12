@@ -14,8 +14,16 @@
         <button type="button" class="deleteButton" (click)="deleteWork(i)">Delete</button>
       </div>
     </div>
-    <div class="function-button">
-
+    <div class="function-row" *ngIf="sizeOfTodoworks()>0">
+      <span class="todo-count">
+        <strong>{{jobLeft()}}</strong>
+        item left
+      </span>
+      <ul class="filters">
+        <li>All</li>
+        <li>Active</li>
+        <li>Completed</li>
+      </ul>
     </div>
   </div>
 </div>

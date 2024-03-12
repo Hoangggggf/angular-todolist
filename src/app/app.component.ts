@@ -37,4 +37,16 @@ export class AppComponent{
       this.todoworks[index].completed = false
     }
   }
+  jobLeft(){
+    let jobs: number = 0;
+    for (const element of this.todoworks){
+      if (element.completed == false){
+        jobs=jobs+1;
+      }
+    }
+    return jobs;
+  }
+  sizeOfTodoworks(){
+    return this.todoworks.length;
+  }
 }
