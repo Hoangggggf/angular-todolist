@@ -2,27 +2,16 @@
   <div class="Header">
     <h1>{{ title }}</h1>
     <input type="text" id="task-input" placeholder="What are you doing today?" (keyup.enter)="addWork()">
-    <div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
-      <input type="checkbox" (change)="completeWork(i)" />
-      <div class="Todowork">
-        <div *ngIf="todowork.completed; else notCompleted">
-          <label class="completedwork">{{todowork.content}}</label>
-        </div>
-        <ng-template #notCompleted>
-          <label class="notcompletedwork">{{todowork.content}}</label>
-        </ng-template>
-        <button type="button" class="deleteButton" (click)="deleteWork(i)">Delete</button>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
     <div class="function-row" *ngIf="sizeOfTodoworks()>0">
       <span class="todo-count">
         <strong>{{jobLeft()}}</strong>
         item left
       </span>
       <ul class="filters">
-        <li>All</li>
-        <li>Active</li>
-        <li>Completed</li>
+        <li><a routerLink="/">All</a></li>
+        <li><a routerLink="/active">Active</a></li>
+        <li><a routerLink="/completed">Completed</a></li>
       </ul>
     </div>
   </div>

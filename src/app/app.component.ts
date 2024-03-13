@@ -1,16 +1,17 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, ChangeDetectorRef, Injectable } from '@angular/core';
 import { todowork } from './works';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { AllWorkComponent } from './all-work/all-work.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, AllWorkComponent],
+  providers: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-
+@Injectable({providedIn:'root'})
 export class AppComponent{
   title = 'To-do list';
   todoworks!: todowork[];
@@ -48,5 +49,10 @@ export class AppComponent{
   }
   sizeOfTodoworks(){
     return this.todoworks.length;
+  } 
+  getTodoWork(){
+    return this.todoworks;
   }
+  
 }
+

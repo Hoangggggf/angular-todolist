@@ -1,0 +1,93 @@
+.Container#main {
+    display: flex;
+        justify-content: center;
+        align-items: start;
+        height: 100vh;  
+    background-color: #f7f7f7;
+}
+h1{
+    text-align: center;
+}
+#task-input{
+    border: 1px solid #cccccc; 
+   outline:0; 
+   height:50px; 
+   width: 400px;
+   font-size:1.5em;
+   text-indent: 30px;
+}
+::placeholder{
+    opacity: 1;
+    color: rgb(170, 170, 170)
+}
+.Header{
+    font-family: Geologica;
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+}
+.Todolist{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}
+.Todowork{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+}
+ul {
+    list-style-type: none;
+}
+.completedwork {
+    text-decoration: line-through;
+}
+.Todolist{
+    width:100%;
+    background-color: rgba(171, 171, 171, 0.333);
+}
+.Todowork{
+    font-family: Arial, Helvetica, sans-serif;
+    text-indent: 10px;
+    border-color: rgb(173, 173, 173);
+    border-width: 0.5px;
+    display: flex;
+    align-items:center;
+    font-size: 2em;
+}
+input[type="checkbox"]{
+    appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      width: 40px;
+      height: 40px;
+      border: 2px solid #999;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+}
+input[type="checkbox"]:checked {
+    background-color: #ff3e3e;
+}
+.deleteButton{
+    display:none;
+}
+.Todowork:hover .deleteButton{
+    display: inline-block;
+    color:#ff3e3e;
+}
+.function-row{
+    padding-left:20px;
+    display:inline-flex;
+    align-items: center;
+}
+.filters{
+
+}
+.filters li{
+    display:inline;
+    padding-left: 5px;
+    padding-right:5px;
+}
