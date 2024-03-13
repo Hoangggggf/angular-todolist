@@ -1,1 +1,9 @@
-<p>Active-work testing</p>
+<div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
+  <div class="Todowork" *ngIf="!todowork.completed">
+    <div>
+      <input type="checkbox" (change)="completeWork(i)" />
+      <label>{{todowork.content}}</label>
+    </div>
+    <button type="button" class="deleteButton" (click)="deleteWork(i)">Delete</button>
+  </div>
+ 

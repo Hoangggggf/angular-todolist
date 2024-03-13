@@ -37,6 +37,7 @@ export class AppComponent{
     {
       this.todoworks[index].completed = false
     }
+    this.cdr.detectChanges();
   }
   jobLeft(){
     let jobs: number = 0;
