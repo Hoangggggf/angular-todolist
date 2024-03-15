@@ -21,4 +21,16 @@ export class AllWorkComponent {
     this.service.deleteWork(index);
   }
   todoworks = this.service.todoworks;
+  editWork(i:number){
+    var value=document.getElementById(i.toString());
+    value.contentEditable="true";
+    value.focus();
+    value.addEventListener('blur',()=>{
+      this.updateWork(i);
+    },false)
+  }
+  updateWork(i:number){
+    var value=document.getElementById(i.toString());
+    this.service.editWork(i,value.innerText);
+  }
 }

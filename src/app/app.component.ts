@@ -13,7 +13,7 @@ import { AllWorkComponent } from './all-work/all-work.component';
 })
 @Injectable({providedIn:'root'})
 export class AppComponent{
-  title = 'To-do list';
+  title = 'TODO LIST';
   todoworks!: todowork[];
   constructor(private cdr: ChangeDetectorRef){
     this.todoworks = [];
@@ -54,6 +54,15 @@ export class AppComponent{
   getTodoWork(){
     return this.todoworks;
   }
-  
+  clearCompletedWork(){
+    for (let i=0; i< this.todoworks.length; i++){
+      if (this.todoworks[i].completed == true){
+        this.deleteWork(i);
+      }
+    }
+  }
+  editWork(index:number,newWork:string){
+    this.todoworks[index].content = newWork;
+  }
 }
 

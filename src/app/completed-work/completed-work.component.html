@@ -1,6 +1,6 @@
 <div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
     <div  *ngIf="todowork.completed">
-    <input type="checkbox" (change)="completeWork(i)" />
+    <input type="checkbox" checked (change)="completeWork(i)" />
     <div class="Todowork">
       <div>
         <label class="completedwork">{{todowork.content}}</label>

@@ -32,12 +32,17 @@ h1{
     width:100%;
 }
 .Todowork{
-    display:flex;
+    display:inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width:100%;
 }
+.Todowork-mini{
+    display:inline-flex;
+    justify-content:center;
+    align-items: center;
+}   
 ul {
     list-style-type: none;
 }

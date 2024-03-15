@@ -2,7 +2,7 @@
   <div class="Todowork" *ngIf="!todowork.completed">
     <div>
       <input type="checkbox" (change)="completeWork(i)" />
-      <label>{{todowork.content}}</label>
+      <label id={{i}} class="notcompletedwork" (dblclick)="editWork(i)">{{todowork.content}}</label>
     </div>
     <button type="button" class="deleteButton" (click)="deleteWork(i)">Delete</button>
   </div>

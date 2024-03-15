@@ -20,12 +20,6 @@ h1{
     opacity: 1;
     color: rgb(170, 170, 170)
 }
-.Header{
-    font-family: Geologica;
-    display:flex;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-}
 .Todolist{
     display:flex;
     flex-direction: row;

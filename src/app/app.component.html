@@ -13,6 +13,7 @@
         <li><a routerLink="/active">Active</a></li>
         <li><a routerLink="/completed">Completed</a></li>
       </ul>
+      <button type="button" class="clear-completed" *ngIf="jobLeft()<sizeOfTodoworks()" (click)="clearCompletedWork()"> Clear completed</button>
     </div>
   </div>
 </div>
