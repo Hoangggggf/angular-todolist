@@ -97,3 +97,17 @@ input[type="checkbox"]:checked {
     padding-left: 5px;
     padding-right:5px;
 }
+.filters li a{
+    color:black;
+    font-style: normal;
+    text-decoration: none;
+}
+.filter li a:hover{
+    background-color: #ffc1c1;
+    color: #ffc1c1;
+}
+.selected{
+    border-style: solid;
+    border-color: salmon;
+    border-radius: 5px;
+}
