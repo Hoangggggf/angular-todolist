@@ -1,16 +1,24 @@
-<div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
-  <div class="Todowork" *ngIf="todowork.completed">
-    <div class="Todowork-mini">
-      <input type="checkbox" checked (change)="completeWork(i)" />
-      <label class="completedwork" id={{i}}>{{todowork.content}}</label>
+<style>
+.Scrollable{
+  max-height:300px;
+  overflow-y: scroll;
+}
+</style>
+<div class="Scrollable">
+  <div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
+    <div class="Todowork" *ngIf="todowork.completed">
+      <div class="Todowork-mini">
+        <input type="checkbox" checked (change)="completeWork(i)" />
+        <label class="completedwork" id={{i}}>{{todowork.content}}</label>
+      </div>
+      <button type="button" class="deleteButton" (click)="deleteWork(i)"><i class="fa fa-close"></i></button>
     </div>
-    <button type="button" class="deleteButton" (click)="deleteWork(i)"><i class="fa fa-close"></i></button>
-  </div>
-  <div class="Todowork" *ngIf="!todowork.completed">
-    <div class="Todowork-mini">
-      <input type="checkbox" (change)="completeWork(i)"/>
-      <label id={{i}} class="notcompletedwork" (dblclick)="editWork(i)">{{todowork.content}}</label>
+    <div class="Todowork" *ngIf="!todowork.completed">
+      <div class="Todowork-mini">
+        <input type="checkbox" (change)="completeWork(i)" />
+        <label id={{i}} class="notcompletedwork" (dblclick)="editWork(i)">{{todowork.content}}</label>
+      </div>
+      <button type="button" class="deleteButton" (click)="deleteWork(i)"><i class="fa fa-close"></i></button>
     </div>
-    <button type="button" class="deleteButton" (click)="deleteWork(i)"><i class="fa fa-close"></i></button>
   </div>
 </div>

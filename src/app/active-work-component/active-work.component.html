@@ -1,3 +1,4 @@
+<div class="Scrollable">
 <div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
   <div class="Todowork" *ngIf="!todowork.completed">
     <div class="Todowork-mini">
@@ -5,5 +6,6 @@
       <label id={{i}} class="notcompletedwork" (dblclick)="editWork(i)">{{todowork.content}}</label>
     </div>
     <button type="button" class="deleteButton" (click)="deleteWork(i)"><i class="fa fa-close"></i></button>
+  </div>
   </div>
   </div>

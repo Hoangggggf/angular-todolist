@@ -108,7 +108,7 @@ input[type="checkbox"]:checked {
     color:#ff3e3e;
 }
 .function-row{
-    padding-left:20px;
+    padding-left:0px;
     display:inline-flex;
     align-items: center;
 }
@@ -117,3 +117,7 @@ input[type="checkbox"]:checked {
     padding-left: 5px;
     padding-right:5px;
 }
+.Scrollable{
+    max-height:300px;
+    overflow-y: auto;
+  }

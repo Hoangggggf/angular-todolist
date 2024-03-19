@@ -2,7 +2,7 @@
     display: flex;
         justify-content: center;
         align-items: start;
-        height: 100vh;  
+        height: 300px;  
     background-color: #ffffff;
 }
 h1{
@@ -115,7 +115,8 @@ input[type="checkbox"]:checked {
     border-radius: 3px;
 }
 .todo-count{
-    font-size:14px;
+    padding-left:20px;
+    font-size:16px;
     font-family: Arial, Helvetica, sans-serif;
     color: #111;
 }

@@ -113,3 +113,7 @@ input[type="checkbox"]:checked {
     padding-left: 5px;
     padding-right:5px;
 }
+.Scrollable{
+    max-height:300px;
+    overflow-y: auto;
+}
