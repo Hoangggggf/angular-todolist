@@ -3,6 +3,7 @@ import { todowork } from './works';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AllWorkComponent } from './all-work/all-work.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,20 +13,28 @@ import { AllWorkComponent } from './all-work/all-work.component';
   styleUrl: './app.component.css',
 })
 @Injectable({ providedIn: 'root' })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  storageKey = 'user-job';
   title = 'TODO LIST';
   todoworks!: todowork[];
   constructor(private cdr: ChangeDetectorRef) {
     this.todoworks = [];
   };
+  ngOnInit(): void {
+      this.todoworks = JSON.parse(localStorage.getItem(this.storageKey));
+  }
   addWork() {
     var input = (<HTMLInputElement>document.getElementById("task-input")).value;
     this.todoworks.push({ content: input, completed: false });
+    localStorage.clear();
+    localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
     (<HTMLInputElement>document.getElementById("task-input")).value = '';
     this.cdr.detectChanges();
   };
   deleteWork(index: number) {
     this.todoworks.splice(index, 1);
+    localStorage.clear();
+    localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
     this.cdr.detectChanges();
   };
   completeWork(index: number) {
@@ -63,6 +72,8 @@ export class AppComponent {
   }
   editWork(index: number, newWork: string) {
     this.todoworks[index].content = newWork;
+    localStorage.clear();
+    localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
   }
 
   navBarChange(index: string) {
