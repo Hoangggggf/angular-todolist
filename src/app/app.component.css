@@ -40,6 +40,9 @@ h1{
     align-items: center;
     justify-content: space-between;
     width:100%;
+    border-style:solid;
+    border-color:#999;
+    border-width:5px;
 }
 ul {
     list-style-type: none;
@@ -49,12 +52,12 @@ ul {
 }
 .Todolist{
     width:100%;
-    background-color: rgba(171, 171, 171, 0.333);
+    background-color: rgb(255, 255, 255);
 }
 .Todowork{
     font-family: Arial, Helvetica, sans-serif;
     text-indent: 10px;
-    border-color: rgb(173, 173, 173);
+    border-color: rgb(255, 255, 255);
     border-width: 0.5px;
     display: flex;
     align-items:center;
@@ -84,13 +87,14 @@ input[type="checkbox"]:checked {
 .function-row{
     padding-left:20px;
     display:inline-flex;
+    width: 100%;
     align-items: center;
 }
 .clear-button{
     padding-left:10px;
 }
 .filters{
-    
+    align-items: center;
 }
 .filters li{
     display:inline;
@@ -99,15 +103,27 @@ input[type="checkbox"]:checked {
 }
 .filters li a{
     color:black;
-    font-style: normal;
+    font-style:normal;
     text-decoration: none;
 }
 .filter li a:hover{
-    background-color: #ffc1c1;
-    color: #ffc1c1;
+    border-color: #db7676;
 }
 .selected{
     border-style: solid;
-    border-color: salmon;
-    border-radius: 5px;
+    border-color: rgb(255, 95, 78);
+    border-radius: 3px;
+}
+.todo-count{
+    font-size:14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+}
+.clear-completed{
+    padding-left:40px;
+    background-color: transparent;
+    border:none;
+    font-size: 15px;
+    color:black;
+    text-align: center;
 }

@@ -20,10 +20,46 @@ h1{
     opacity: 1;
     color: rgb(170, 170, 170)
 }
+.Header{
+    font-family: Geologica;
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+}
 .Todolist{
     display:flex;
     flex-direction: row;
     width:100%;
+}
+.Todowork{
+    display:inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+}
+.Todowork-mini{
+    display:inline-flex;
+    justify-content:center;
+    align-items: center;
+}   
+ul {
+    list-style-type: none;
+}
+.completedwork {
+    text-decoration: line-through;
+    overflow-wrap:break-word;
+    padding: 15px;
+    display:block;
+    line-height: 1.2;
+    transition: color .4s;
+    font-weight: 250;
+    font-size:30px;
+    color: #303030;
+}
+.Todolist{
+    width:100%;
+    background-color: rgb(255, 255, 255);
 }
 .Todowork{
     display:flex;
@@ -31,25 +67,9 @@ h1{
     align-items: center;
     justify-content: space-between;
     width:100%;
-}
-ul {
-    list-style-type: none;
-}
-.completedwork {
-    text-decoration: line-through;
-}
-.Todolist{
-    width:100%;
-    background-color: rgba(171, 171, 171, 0.333);
-}
-.Todowork{
-    font-family: Arial, Helvetica, sans-serif;
-    text-indent: 10px;
-    border-color: rgb(173, 173, 173);
-    border-width: 0.5px;
-    display: flex;
-    align-items:center;
-    font-size: 2em;
+    border-style:solid;
+    border-color:#cecece60;
+    border-bottom-width:0.5px;
 }
 input[type="checkbox"]{
     appearance: none;
@@ -61,12 +81,23 @@ input[type="checkbox"]{
       border-radius: 50%;
       outline: none;
       cursor: pointer;
+      margin: 5px
 }
 input[type="checkbox"]:checked {
     background-color: #ff3e3e;
 }
 .deleteButton{
     display:none;
+}
+.notcompletedwork{
+    overflow-wrap:break-word;
+    padding: 15px;
+    display:block;
+    line-height: 1.2;
+    transition: color .4s;
+    font-weight: 250;
+    font-size:30px;
+    color: #303030; 
 }
 .Todowork:hover .deleteButton{
     display: inline-block;
@@ -76,9 +107,6 @@ input[type="checkbox"]:checked {
     padding-left:20px;
     display:inline-flex;
     align-items: center;
-}
-.filters{
-
 }
 .filters li{
     display:inline;

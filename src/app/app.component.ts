@@ -56,8 +56,10 @@ export class AppComponent {
     for (let i = 0; i < this.todoworks.length; i++) {
       if (this.todoworks[i].completed == true) {
         this.deleteWork(i);
+        i = i-1;
       }
     }
+    this.cdr.detectChanges();
   }
   editWork(index: number, newWork: string) {
     this.todoworks[index].content = newWork;

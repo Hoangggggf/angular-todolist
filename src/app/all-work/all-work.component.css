@@ -48,19 +48,28 @@ ul {
 }
 .completedwork {
     text-decoration: line-through;
+    overflow-wrap:break-word;
+    padding: 15px;
+    display:block;
+    line-height: 1.2;
+    transition: color .4s;
+    font-weight: 250;
+    font-size:30px;
+    color: #303030;
 }
 .Todolist{
     width:100%;
-    background-color: rgba(171, 171, 171, 0.333);
+    background-color: rgb(255, 255, 255);
 }
 .Todowork{
-    font-family: Arial, Helvetica, sans-serif;
-    text-indent: 10px;
-    border-color: rgb(173, 173, 173);
-    border-width: 0.5px;
-    display: flex;
-    align-items:center;
-    font-size: 2em;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    border-style:solid;
+    border-color:#cecece60;
+    border-bottom-width:0.5px;
 }
 input[type="checkbox"]{
     appearance: none;
@@ -72,6 +81,7 @@ input[type="checkbox"]{
       border-radius: 50%;
       outline: none;
       cursor: pointer;
+      margin: 5px
 }
 input[type="checkbox"]:checked {
     background-color: #ff3e3e;
@@ -79,7 +89,21 @@ input[type="checkbox"]:checked {
 .deleteButton{
     display:none;
 }
+.notcompletedwork{
+    overflow-wrap:break-word;
+    padding: 15px;
+    display:block;
+    line-height: 1.2;
+    transition: color .4s;
+    font-weight: 250;
+    font-size:30px;
+    color: #303030; 
+}
 .Todowork:hover .deleteButton{
+    background-color: transparent;
+    font-size:19;
+    border:none;
+    padding: 16px 20px;
     display: inline-block;
     color:#ff3e3e;
 }
@@ -87,9 +111,6 @@ input[type="checkbox"]:checked {
     padding-left:20px;
     display:inline-flex;
     align-items: center;
-}
-.filters{
-
 }
 .filters li{
     display:inline;

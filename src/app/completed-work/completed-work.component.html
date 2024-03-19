@@ -1,11 +1,9 @@
 <div class="Todolist" *ngFor="let todowork of todoworks; let i = index">
-    <div  *ngIf="todowork.completed">
-    <input type="checkbox" checked (change)="completeWork(i)" />
-    <div class="Todowork">
-      <div>
-        <label class="completedwork">{{todowork.content}}</label>
-      </div>
-      <button type="button" class="deleteButton" (click)="deleteWork(i)">Delete</button>
+  <div class="Todowork" *ngIf="todowork.completed">
+    <div class="Todowork-mini">
+      <input type="checkbox" checked (change)="completeWork(i)" />
+      <label class="completedwork" id={{i}}>{{todowork.content}}</label>
     </div>
-<div>
+    <button type="button" class="deleteButton" (click)="deleteWork(i)"><i class="fa fa-close"></i></button>
+  </div>
   </div>
