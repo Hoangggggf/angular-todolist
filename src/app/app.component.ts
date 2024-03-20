@@ -13,35 +13,38 @@ import { AllWorkComponent } from './all-work/all-work.component';
   styleUrl: './app.component.css',
 })
 @Injectable({ providedIn: 'root' })
-export class AppComponent{
+export class AppComponent {
   isBrowser;
   storageKey = 'user-job';
   title = 'TODO LIST';
   todoworks!: todowork[];
   constructor(private cdr: ChangeDetectorRef, @Inject(PLATFORM_ID) private platformID: Object) {
     this.isBrowser = isPlatformBrowser(platformID);
-    if (this.isBrowser){
-    if (localStorage.getItem(this.storageKey) === null){
-      this.todoworks = [];
+    if (this.isBrowser) {
+      if (localStorage.getItem(this.storageKey) === null) {
+        this.todoworks = [];
+      }
+      else this.todoworks = JSON.parse(localStorage.getItem(this.storageKey));
     }
-    else this.todoworks = JSON.parse(localStorage.getItem(this.storageKey));
-  }
     else {
       this.todoworks = [];
     }
-};
+  };
   addWork() {
     var input = (<HTMLInputElement>document.getElementById("task-input")).value;
     this.todoworks.push({ content: input, completed: false });
+    if (this.isBrowser){
     localStorage.clear();
-    localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
+    localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
+    }
     (<HTMLInputElement>document.getElementById("task-input")).value = '';
     this.cdr.detectChanges();
   };
   deleteWork(index: number) {
     this.todoworks.splice(index, 1);
+    if (this.isBrowser){
     localStorage.clear();
-    localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
+    localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));}
     this.cdr.detectChanges();
   };
   completeWork(index: number) {
@@ -51,8 +54,9 @@ export class AppComponent{
     else {
       this.todoworks[index].completed = false
     }
+    if (this.isBrowser){
     localStorage.clear();
-    localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
+    localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));}
     this.cdr.detectChanges();
   }
   jobLeft() {
@@ -74,15 +78,17 @@ export class AppComponent{
     for (let i = 0; i < this.todoworks.length; i++) {
       if (this.todoworks[i].completed == true) {
         this.deleteWork(i);
-        i = i-1;
+        i = i - 1;
       }
     }
     this.cdr.detectChanges();
   }
   editWork(index: number, newWork: string) {
     this.todoworks[index].content = newWork;
+    if (this.isBrowser){
     localStorage.clear();
-    localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
+    localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
+    }
   }
   navBarChange(index: string) {
     switch (index) {
