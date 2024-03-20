@@ -89,6 +89,7 @@ input[type="checkbox"]:checked {
 .deleteButton{
     display:none;
     cursor:pointer;
+    size: 10px;
 }
 .notcompletedwork{
     overflow-wrap:break-word;
@@ -102,11 +103,11 @@ input[type="checkbox"]:checked {
 }
 .Todowork:hover .deleteButton{
     background-color: transparent;
-    font-size:19;
     border:none;
-    padding: 16px 20px;
+    padding: 10px 10px;
     display: inline-block;
-    color:#ff3e3e;
+    color:#ff4c4c;
+    font-size:25px;
 }
 .function-row{
     padding-left:0px;

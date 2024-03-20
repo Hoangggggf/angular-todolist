@@ -88,6 +88,8 @@ input[type="checkbox"]:checked {
 }
 .deleteButton{
     display:none;
+    cursor:pointer;
+    size: 10px;
 }
 .notcompletedwork{
     overflow-wrap:break-word;
@@ -100,11 +102,15 @@ input[type="checkbox"]:checked {
     color: #303030; 
 }
 .Todowork:hover .deleteButton{
+    background-color: transparent;
+    border:none;
+    padding: 10px 10px;
     display: inline-block;
-    color:#ff3e3e;
+    color:#ff4c4c;
+    font-size:25px;
 }
 .function-row{
-    padding-left:20px;
+    padding-left:0px;
     display:inline-flex;
     align-items: center;
 }
@@ -116,4 +122,4 @@ input[type="checkbox"]:checked {
 .Scrollable{
     max-height:300px;
     overflow-y: auto;
-}
+  }
