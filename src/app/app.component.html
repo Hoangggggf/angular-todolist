@@ -1,6 +1,6 @@
 <div class="Container" id="main">
+  <h1>{{ title }}</h1>
   <div class="Header">
-    <h1>{{ title }}</h1>
     <input type="text" id="task-input" placeholder="What are you doing today?" (keyup.enter)="addWork()">
     <router-outlet></router-outlet>
     <div class="function-row" *ngIf="sizeOfTodoworks()>0">

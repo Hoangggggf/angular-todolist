@@ -1,1 +1,198 @@
 /* You can add global styles to this file, and also import other style files */
+.Container#main {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    background-color: #ffffff;
+}
+
+.Header {
+    box-shadow: 0px 0px 10px rgba(117, 117, 117, 0.5);
+    font-family: Geologica;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+}
+
+h1 {
+    text-align: center;
+    color: #c45151;
+    font-size: 60px;
+}
+
+#task-input {
+    border: 1px solid #cccccc;
+    outline-color: #ff7070;
+    height: 70px;
+    width: 550px;
+    font-size: 1.7em;
+    text-indent: 49px;
+}
+
+::placeholder {
+    opacity: 1;
+    color: rgb(170, 170, 170)
+}
+
+ul {
+    list-style-type: none;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
+.function-row {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    border-top: #dd6a6a;
+    border-top-style:solid;
+    border-top-width: 0.8px;
+    box-shadow: 0px 1px #0003, 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px #0003, 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px #0003;
+}
+
+.clear-button {
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.filters {
+    align-items: center;
+    padding-right: 30px;
+}
+
+.filters li {
+    display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.filters li a {
+    color: black;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 300;
+
+}
+
+.filter li a:hover {
+    border-color: #db7676;
+}
+
+.selected {
+    border-style: solid;
+    border-color: rgb(255, 142, 129);
+    border-radius: 6px;
+    border-width: 1.5px;
+}
+
+.todo-count {
+    padding-left: 12px;
+    padding-right: 60px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+}
+
+.clear-completed {
+    padding-left: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Todowork-mini {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.completedwork {
+    text-decoration: line-through;
+    overflow-wrap: break-word;
+    padding: 8px;
+    display: block;
+    line-height: 1.2;
+    font-weight: 70;
+    font-size: 30px;
+    color: #303030;
+}
+
+.notcompletedwork {
+    overflow-wrap: break-word;
+    padding: 8px;
+    display: block;
+    line-height: 1.2;
+    font-weight: 70;
+    font-size: 30px;
+    color: #303030;
+}
+
+.Todolist {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.Todowork {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 99.2%;
+    border-style: solid;
+    border-color: #cecece60;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-width: 0.5px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    margin: 5px
+}
+
+input[type="checkbox"]:checked {
+    background-color: #ff3e3e;
+}
+
+.deleteButton {
+    display: none;
+    cursor: pointer;
+    size: 10px;
+}
+
+.Todowork:hover .deleteButton {
+    background-color: transparent;
+    border: none;
+    padding: 10px 10px;
+    display: inline-block;
+    color: #ff4c4c;
+    font-size: 25px;
+}
+
+.Scrollable {
+    max-height: 300px;
+    overflow-y: auto;
+}
