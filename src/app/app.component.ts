@@ -13,16 +13,16 @@ import { AllWorkComponent } from './all-work/all-work.component';
   styleUrl: './app.component.css',
 })
 @Injectable({ providedIn: 'root' })
-export class AppComponent implements OnInit {
+export class AppComponent{
   storageKey = 'user-job';
   title = 'TODO LIST';
   todoworks!: todowork[];
   constructor(private cdr: ChangeDetectorRef) {
-    this.todoworks = [];
+    if (localStorage.getItem(this.storageKey) === null){
+      this.todoworks = [];
+    }
+    else this.todoworks = JSON.parse(localStorage.getItem(this.storageKey));
   };
-  ngOnInit(): void {
-      this.todoworks = JSON.parse(localStorage.getItem(this.storageKey));
-  }
   addWork() {
     var input = (<HTMLInputElement>document.getElementById("task-input")).value;
     this.todoworks.push({ content: input, completed: false });
@@ -44,6 +44,8 @@ export class AppComponent implements OnInit {
     else {
       this.todoworks[index].completed = false
     }
+    localStorage.clear();
+    localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
     this.cdr.detectChanges();
   }
   jobLeft() {
@@ -75,7 +77,6 @@ export class AppComponent implements OnInit {
     localStorage.clear();
     localStorage.setItem(this.storageKey,JSON.stringify(this.todoworks));
   }
-
   navBarChange(index: string) {
     switch (index) {
       case "all":

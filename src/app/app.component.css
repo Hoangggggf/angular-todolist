@@ -92,6 +92,7 @@ input[type="checkbox"]:checked {
 }
 .clear-button{
     padding-left:10px;
+    cursor:pointer;
 }
 .filters{
     align-items: center;
@@ -111,8 +112,9 @@ input[type="checkbox"]:checked {
 }
 .selected{
     border-style: solid;
-    border-color: rgb(255, 95, 78);
-    border-radius: 3px;
+    border-color: rgb(255, 142, 129);
+    border-radius: 6px;
+    border-width: 1.5px;
 }
 .todo-count{
     padding-left:20px;
@@ -127,4 +129,5 @@ input[type="checkbox"]:checked {
     font-size: 15px;
     color:black;
     text-align: center;
+    cursor: pointer;
 }
