@@ -25,7 +25,11 @@ export class AppComponent{
       this.todoworks = [];
     }
     else this.todoworks = JSON.parse(localStorage.getItem(this.storageKey));
-  }};
+  }
+    else {
+      this.todoworks = [];
+    }
+};
   addWork() {
     var input = (<HTMLInputElement>document.getElementById("task-input")).value;
     this.todoworks.push({ content: input, completed: false });
