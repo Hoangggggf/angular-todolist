@@ -9,26 +9,34 @@
 }
 
 .Header {
-    box-shadow: 0px 0px 10px rgba(117, 117, 117, 0.5);
-    font-family: Geologica;
+    box-shadow: 0px 16px 50px -32px rgba(0, 0, 0, 0.75);
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
+    max-width: 554px;
 }
 
 h1 {
     text-align: center;
-    color: #c45151;
-    font-size: 60px;
+    color: #FF204E;
+    font-size: 55px;
+    font-family: "Pacifico";
 }
 
 #task-input {
-    border: 1px solid #cccccc;
-    outline-color: #ff7070;
+    border: transparent;
     height: 70px;
+    outline: none;
     width: 550px;
-    font-size: 1.7em;
+    font-size: 2.0em;
+    background-color: #d8d8d865;
     text-indent: 49px;
+    font-family: "Calistoga";
+    transition: 0.1s;
+}
+
+#task-input:focus {
+    border: solid 0.7px rgb(255, 142, 129);
 }
 
 ::placeholder {
@@ -47,6 +55,7 @@ input[type="checkbox"] {
     width: 40px;
     height: 40px;
     border: 2px solid #999;
+    opacity: 0;
     border-radius: 50%;
     outline: none;
     cursor: pointer;
@@ -56,9 +65,7 @@ input[type="checkbox"] {
     display: inline-flex;
     width: 100%;
     align-items: center;
-    border-top: #dd6a6a;
-    border-top-style:solid;
-    border-top-width: 0.8px;
+    background-color: #d8d8d865;
     box-shadow: 0px 1px #0003, 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px #0003, 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px #0003;
 }
 
@@ -83,25 +90,23 @@ input[type="checkbox"] {
     font-style: normal;
     text-decoration: none;
     font-weight: 300;
-
+    font-family:  "Alata", sans-serif;
 }
 
-.filter li a:hover {
-    border-color: #db7676;
-}
+
 
 .selected {
     border-style: solid;
-    border-color: rgb(255, 142, 129);
+    border-color: #A0153E;
     border-radius: 6px;
     border-width: 1.5px;
 }
 
 .todo-count {
     padding-left: 12px;
-    padding-right: 60px;
+    padding-right: 40px;
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Alata", sans-serif;
     color: #111;
 }
 
@@ -109,8 +114,9 @@ input[type="checkbox"] {
     padding-left: 40px;
     background-color: transparent;
     border: none;
-    font-size: 15px;
+    font-size: 16px;
     color: black;
+    font-family: "Alata", sans-serif;
     text-align: center;
     cursor: pointer;
 }
@@ -129,17 +135,19 @@ input[type="checkbox"] {
     line-height: 1.2;
     font-weight: 70;
     font-size: 30px;
-    color: #303030;
+    font-family: "Quando";
+    color: #b8b8b8;
 }
 
 .notcompletedwork {
     overflow-wrap: break-word;
     padding: 8px;
     display: block;
+    font-family: "Quando";
     line-height: 1.2;
     font-weight: 70;
     font-size: 30px;
-    color: #303030;
+    color: #6e6e6e;
 }
 
 .Todolist {
@@ -188,7 +196,7 @@ input[type="checkbox"]:checked {
     border: none;
     padding: 10px 10px;
     display: inline-block;
-    color: #ff4c4c;
+    color: #5D0E41;
     font-size: 25px;
 }
 
@@ -196,3 +204,44 @@ input[type="checkbox"]:checked {
     max-height: 300px;
     overflow-y: auto;
 }
+
+.calistoga-regular {
+    font-family: "Calistoga", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.single-day-regular {
+    font-family: "Single Day", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.mate-regular {
+    font-family: "Mate", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.mate-regular-italic {
+    font-family: "Mate", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+.jomolhari-regular {
+    font-family: "Jomolhari", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .alata-regular {
+    font-family: "Alata", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
