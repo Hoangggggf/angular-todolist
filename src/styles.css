@@ -48,19 +48,6 @@ ul {
     list-style-type: none;
 }
 
-input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 40px;
-    height: 40px;
-    border: 2px solid #999;
-    opacity: 0;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-}
-
 .function-row {
     display: inline-flex;
     width: 100%;
@@ -90,7 +77,7 @@ input[type="checkbox"] {
     font-style: normal;
     text-decoration: none;
     font-weight: 300;
-    font-family:  "Alata", sans-serif;
+    font-family: "Alata", sans-serif;
 }
 
 
@@ -168,23 +155,6 @@ input[type="checkbox"] {
     border-bottom-width: 0.5px;
 }
 
-input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #999;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-    margin: 5px
-}
-
-input[type="checkbox"]:checked {
-    background-color: #ff3e3e;
-}
-
 .deleteButton {
     display: none;
     cursor: pointer;
@@ -234,14 +204,58 @@ input[type="checkbox"]:checked {
     font-weight: 400;
     font-style: normal;
 }
+
 .jomolhari-regular {
     font-family: "Jomolhari", serif;
     font-weight: 400;
     font-style: normal;
-  }
-  .alata-regular {
+}
+
+.alata-regular {
     font-family: "Alata", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+}
+
+.customcheckbox {
+    margin-left: 5px;
+    display: block;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #b3b3b3;
+}
+
+.customcheckbox:hover {
+    border-style: solid;
+    border-color: #111;
+}
+
+.customcheckbox-checked {
+    align-self: center;
+    justify-content: center;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #5D0E41;
+    cursor:pointer;
+    font-family: Arial,sans-serif;
+    color:#00224D;
+    font-size:22px;
+}
