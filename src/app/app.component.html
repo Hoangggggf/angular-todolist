@@ -9,9 +9,9 @@
         jobs left
       </span>
       <ul class="filters">
-        <li id="all" class="selected"><a routerLink="/" (click)="navBarChange('all')">All</a></li>
-        <li id="active"><a routerLink="/active" (click)="navBarChange('active')">Active</a></li>
-        <li id="completed"><a routerLink="/completed" (click)="navBarChange('completed')">Completed</a></li>
+        <li id="all"><a routerLink="/">All</a></li>
+        <li id="active"><a routerLink="/active">Active</a></li>
+        <li id="completed"><a routerLink="/completed">Completed</a></li>
       </ul>
       <button type="button" class="clear-completed" *ngIf="jobLeft()<sizeOfTodoworks()" (click)="clearCompletedWork()"> Clear completed</button>
     </div>

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef, Injectable, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { todowork } from './works';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterEvent, Event } from '@angular/router';
 import { AllWorkComponent } from './all-work/all-work.component';
 
 @Component({
@@ -18,7 +18,8 @@ export class AppComponent {
   storageKey = 'user-job';
   title = 'TODO LIST';
   todoworks!: todowork[];
-  constructor(private cdr: ChangeDetectorRef, @Inject(PLATFORM_ID) private platformID: Object) {
+  href: string = "";
+  constructor(private cdr: ChangeDetectorRef, @Inject(PLATFORM_ID) private platformID: Object, private router: Router) {
     this.isBrowser = isPlatformBrowser(platformID);
     if (this.isBrowser) {
       if (localStorage.getItem(this.storageKey) === null) {
@@ -29,22 +30,26 @@ export class AppComponent {
     else {
       this.todoworks = [];
     }
+    this.router.events.subscribe((event: Event) => {
+      if (this.isBrowser) { this.navBarChange(this.href) };
+    })
   };
   addWork() {
     var input = (<HTMLInputElement>document.getElementById("task-input")).value;
     this.todoworks.push({ content: input, completed: false });
-    if (this.isBrowser){
-    localStorage.clear();
-    localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
+    if (this.isBrowser) {
+      localStorage.clear();
+      localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
     }
     (<HTMLInputElement>document.getElementById("task-input")).value = '';
     this.cdr.detectChanges();
   };
   deleteWork(index: number) {
     this.todoworks.splice(index, 1);
-    if (this.isBrowser){
-    localStorage.clear();
-    localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));}
+    if (this.isBrowser) {
+      localStorage.clear();
+      localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
+    }
     this.cdr.detectChanges();
   };
   completeWork(index: number) {
@@ -54,9 +59,10 @@ export class AppComponent {
     else {
       this.todoworks[index].completed = false
     }
-    if (this.isBrowser){
-    localStorage.clear();
-    localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));}
+    if (this.isBrowser) {
+      localStorage.clear();
+      localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
+    }
     this.cdr.detectChanges();
   }
   jobLeft() {
@@ -85,24 +91,24 @@ export class AppComponent {
   }
   editWork(index: number, newWork: string) {
     this.todoworks[index].content = newWork;
-    if (this.isBrowser){
-    localStorage.clear();
-    localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
+    if (this.isBrowser) {
+      localStorage.clear();
+      localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
     }
   }
-  navBarChange(index: string) {
-    switch (index) {
-      case "all":
+  navBarChange(urlParams: string) {
+    switch (urlParams) {
+      case "/":
         document.getElementById("all").classList.add("selected");
         document.getElementById("active").classList.remove("selected");
         document.getElementById("completed").classList.remove("selected");
         break;
-      case "active":
+      case "/active":
         document.getElementById("all").classList.remove("selected");
         document.getElementById("active").classList.add("selected");
         document.getElementById("completed").classList.remove("selected");
         break;
-      case "completed":
+      case "/completed":
         document.getElementById("all").classList.remove("selected");
         document.getElementById("active").classList.remove("selected");
         document.getElementById("completed").classList.add("selected");
