@@ -18,7 +18,6 @@ export class AppComponent {
   storageKey = 'user-job';
   title = 'TODO LIST';
   todoworks!: todowork[];
-  href: string = "";
   constructor(private cdr: ChangeDetectorRef, @Inject(PLATFORM_ID) private platformID: Object, private router: Router) {
     this.isBrowser = isPlatformBrowser(platformID);
     if (this.isBrowser) {
@@ -31,7 +30,7 @@ export class AppComponent {
       this.todoworks = [];
     }
     this.router.events.subscribe((event: Event) => {
-      if (this.isBrowser) { this.navBarChange(this.href) };
+      if (this.isBrowser) { this.navBarChange(this.router.url) };
     })
   };
   addWork() {
