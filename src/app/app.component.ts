@@ -3,6 +3,7 @@ import { todowork } from './works';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule, RouterEvent, Event } from '@angular/router';
 import { AllWorkComponent } from './all-work/all-work.component';
+import { once } from 'node:events';
 
 @Component({
   selector: 'app-root',
@@ -44,12 +45,26 @@ export class AppComponent {
     this.cdr.detectChanges();
   };
   deleteWork(index: number) {
-    this.todoworks.splice(index, 1);
-    if (this.isBrowser) {
-      localStorage.clear();
-      localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
-    }
-    this.cdr.detectChanges();
+    var modal = document.getElementById("modal");
+    modal.style.display = "block";
+    let fired = false;
+    var confirmButton = document.getElementById('confirm-delete');
+    confirmButton.addEventListener('click', (e) => {
+      console.log(this.todoworks);
+      if (this.isBrowser) {
+        this.todoworks.splice(index, 1);
+        localStorage.clear();
+        localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
+      }
+      modal.style.display = "none";
+      confirmButton.removeEventListener('click', () => { });
+      fired = true;
+      return;
+    }, { once: true });
+    document.getElementById('cancel-delete').addEventListener('click', () => {
+      modal.style.display = "none";
+    }, { once: true },
+    )
   };
   completeWork(index: number) {
     if (this.todoworks[index].completed == false) {
