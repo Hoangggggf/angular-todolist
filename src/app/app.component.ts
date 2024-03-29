@@ -3,62 +3,41 @@ import { todowork } from './works';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule, RouterEvent, Event } from '@angular/router';
 import { AllWorkComponent } from './all-work/all-work.component';
-import { once } from 'node:events';
+import { MyServices } from './service.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterModule, AllWorkComponent],
-  providers: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn:'root'})
 export class AppComponent {
   isBrowser;
   storageKey = 'user-job';
   title = 'TODO LIST';
-  todoworks!: todowork[];
-  constructor(private cdr: ChangeDetectorRef, @Inject(PLATFORM_ID) private platformID: Object, private router: Router) {
+  constructor(private cdr: ChangeDetectorRef, private router: Router, @Inject(MyServices) private myService: MyServices, @Inject(PLATFORM_ID) private platformID: Object) {
     this.isBrowser = isPlatformBrowser(platformID);
-    if (this.isBrowser) {
-      if (localStorage.getItem(this.storageKey) === null) {
-        this.todoworks = [];
-      }
-      else this.todoworks = JSON.parse(localStorage.getItem(this.storageKey));
-    }
-    else {
-      this.todoworks = [];
-    }
     this.router.events.subscribe((event: Event) => {
       if (this.isBrowser) { this.navBarChange(this.router.url) };
     })
   };
+
   addWork() {
     var input = (<HTMLInputElement>document.getElementById("task-input")).value;
-    this.todoworks.push({ content: input, completed: false });
-    if (this.isBrowser) {
-      localStorage.clear();
-      localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
-    }
+    this.myService.addWork(input);
     (<HTMLInputElement>document.getElementById("task-input")).value = '';
     this.cdr.detectChanges();
   };
-  deleteWork(index: number) {
+
+  deleteWork(id: number) {
     var modal = document.getElementById("modal");
     modal.style.display = "block";
-    let fired = false;
     var confirmButton = document.getElementById('confirm-delete');
     confirmButton.addEventListener('click', (e) => {
-      console.log(this.todoworks);
-      if (this.isBrowser) {
-        this.todoworks.splice(index, 1);
-        localStorage.clear();
-        localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
-      }
+      this.myService.deleteWork(id);
       modal.style.display = "none";
-      confirmButton.removeEventListener('click', () => { });
-      fired = true;
       return;
     }, { once: true });
     document.getElementById('cancel-delete').addEventListener('click', () => {
@@ -66,50 +45,33 @@ export class AppComponent {
     }, { once: true },
     )
   };
+
   completeWork(index: number) {
-    if (this.todoworks[index].completed == false) {
-      this.todoworks[index].completed = true;
-    }
-    else {
-      this.todoworks[index].completed = false
-    }
-    if (this.isBrowser) {
-      localStorage.clear();
-      localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
-    }
+    this.myService.completeWork(index);
     this.cdr.detectChanges();
   }
+
   jobLeft() {
-    let jobs: number = 0;
-    for (const element of this.todoworks) {
-      if (element.completed == false) {
-        jobs = jobs + 1;
-      }
-    }
-    return jobs;
+   return this.myService.jobLeft();
   }
+
   sizeOfTodoworks() {
-    return this.todoworks.length;
+    return this.myService.sizeOfTodoworks();
   }
+
   getTodoWork() {
-    return this.todoworks;
+    return this.myService.getTodoWork();
   }
+
   clearCompletedWork() {
-    for (let i = 0; i < this.todoworks.length; i++) {
-      if (this.todoworks[i].completed == true) {
-        this.deleteWork(i);
-        i = i - 1;
-      }
-    }
+  this.myService.clearCompletedWork();
     this.cdr.detectChanges();
   }
-  editWork(index: number, newWork: string) {
-    this.todoworks[index].content = newWork;
-    if (this.isBrowser) {
-      localStorage.clear();
-      localStorage.setItem(this.storageKey, JSON.stringify(this.todoworks));
-    }
+
+  editWork(id: number, newWork: string) {
+    this.myService.editWork(id,newWork);
   }
+
   navBarChange(urlParams: string) {
     switch (urlParams) {
       case "/":

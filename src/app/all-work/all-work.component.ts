@@ -20,14 +20,16 @@ export class AllWorkComponent {
   deleteWork(index: number){
     this.service.deleteWork(index);
   }
-  todoworks = this.service.todoworks;
+  todoworks = this.service.getTodoWork();
   editWork(i:number){
     var value=document.getElementById(i.toString());
     value.contentEditable="true";
     value.focus();
+    value.style.outline = "1px solid rgb(255, 115, 115)";
     value.addEventListener('blur',()=>{
       this.updateWork(i);
-    },false)
+      value.style.outline = "none";
+    },{once:true})
   }
   updateWork(i:number){
     var value=document.getElementById(i.toString());

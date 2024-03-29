@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AppComponent } from '../app.component';
-
+import { MyServices } from '../service.module';
 @Component({
   selector: 'app-completed-work',
   standalone: true,
@@ -10,7 +10,7 @@ import { AppComponent } from '../app.component';
   templateUrl: './completed-work.component.html',
 })
 export class CompletedWorkComponent {
-  constructor(private service: AppComponent){};
+  constructor(private service: MyServices){};
   getTodoWork(){
     return this.service.getTodoWork();
   }
@@ -20,5 +20,5 @@ export class CompletedWorkComponent {
   deleteWork(index: number){
     this.service.deleteWork(index);
   }
-  todoworks = this.service.todoworks;
+  todoworks = this.service.getTodoWork();
 }
