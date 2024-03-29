@@ -7,18 +7,19 @@
         <h4>Are you sure?</h4>
       </div>
       <div class="modal-body">Do you really want to delete this record? This process cannot be undone.</div>
-      <div class="modal-button"> 
+      <div class="modal-button">
         <button id="cancel-delete">Cancel</button>
         <button id="confirm-delete">Confirm</button>
       </div>
     </div>
   </div>
   <div class="Header">
+
     <input type="text" id="task-input" placeholder="What are you doing today?" (keyup.enter)="addWork()">
     <router-outlet></router-outlet>
     <div class="function-row" *ngIf="sizeOfTodoworks()>0">
       <span class="todo-count">
-        <strong>{{jobLeft()}}</strong>
+        <strong>{{jobLeft()}} </strong>
         jobs left
       </span>
       <ul class="filters">
@@ -26,8 +27,11 @@
         <li id="active"><a routerLink="/active">Active</a></li>
         <li id="completed"><a routerLink="/completed">Completed</a></li>
       </ul>
-      <button type="button" class="clear-completed" *ngIf="jobLeft()<sizeOfTodoworks()" (click)="clearCompletedWork()">
-        Clear completed</button>
+      <span class="clear-completed-button">
+        <button type="button" class="clear-completed" *ngIf="jobLeft()<sizeOfTodoworks()"
+          (click)="clearCompletedWork()">
+          Clear completed</button>
+      </span>
     </div>
   </div>
 </div>

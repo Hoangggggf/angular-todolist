@@ -7,9 +7,12 @@
     height: 300px;
     background-color: #ffffff;
 }
+
 body {
-    margin:0px;
+    margin: 0px;
+    font-family: Helvetica, Arial, sans-serif
 }
+
 .Header {
     box-shadow: 0px 16px 50px -32px rgba(0, 0, 0, 0.75);
     display: flex;
@@ -20,20 +23,20 @@ body {
 
 h1 {
     text-align: center;
-    color: #FF204E;
+    color: #B83F45;
     font-size: 55px;
     font-family: "Inter";
 }
 
 #task-input {
     border: transparent;
-    height: 70px;
+    height: 62px;
     outline: none;
     width: 550px;
-    font-size: 2.0em;
+    font-size: 24px;
     background-color: #d8d8d865;
     text-indent: 49px;
-    font-family: inter,sans-serif;
+    font-family: inter, sans-serif;
     transition: 0.1s;
 }
 
@@ -52,8 +55,13 @@ ul {
 
 .function-row {
     display: inline-flex;
-    width: 100%;
+    width: 97.3%;
     align-items: center;
+    justify-content: center;
+    font-size:16px;
+    gap:32px;
+    padding-left:8px;
+    padding-right:8px;
     background-color: #d8d8d865;
     box-shadow: 0px 1px #0003, 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px #0003, 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px #0003;
 }
@@ -66,15 +74,17 @@ ul {
 .filters {
     align-items: center;
     padding-right: 30px;
+    display:flex;
+    gap:12px;
 }
 
 .filters li {
     display: inline;
-    padding-left: 5px;
-    padding-right: 5px;
 }
 
 .filters li a {
+    padding:7px;
+    border:1px;
     color: black;
     font-style: normal;
     text-decoration: none;
@@ -82,30 +92,23 @@ ul {
     font-family: "Alata", sans-serif;
 }
 
-
-
 .selected {
     border-style: solid;
-    border-color: #A0153E;
+    border-color: #d11d53;
     border-radius: 6px;
-    border-width: 1.5px;
+    border-width: 1.32px;
 }
 
 .todo-count {
-    padding-left: 12px;
-    padding-right: 40px;
-    font-size: 16px;
-    font-family: "Alata", sans-serif;
+    font-weight:200;
+    font-family: Arial, Helvetica, sans-serif;
     color: #111;
 }
 
 .clear-completed {
-    padding-left: 40px;
     background-color: transparent;
     border: none;
-    font-size: 16px;
-    color: black;
-    font-family: "Alata", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     cursor: pointer;
 }
@@ -119,34 +122,33 @@ ul {
 .completedwork {
     text-decoration: line-through;
     overflow-wrap: break-word;
-    padding: 8px;
+    padding: 16px 16px 16px 30px;
     display: block;
+    font-family: Helvetica, Arial, sans-serif;
     line-height: 1.2;
-    font-weight: 70;
-    font-size: 30px;
-    min-width: 430px;
-    min-height: 42px;
-    font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-    color: #b8b8b8;
+    font-weight: 400;
+    font-size: 24px;
+    color: #a7a7a7;
+    max-width: 410px;
 }
 
 .notcompletedwork {
     overflow-wrap: break-word;
-    padding: 8px; 
+    padding: 16px 16px 16px 30px;
     display: block;
-    font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-family: Helvetica, Arial, sans-serif;
     line-height: 1.2;
-    font-weight: 70;
-    font-size: 30px;
-    color: #6e6e6e;
-    min-width: 430px;
-    min-height: 42px;
+    font-weight: 400;
+    font-size: 24px;
+    color: #484848;
+    max-width: 410px;
 }
 
 
 .Todolist {
     width: 100%;
     background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #ededed;
 }
 
 .Todowork {
@@ -155,11 +157,8 @@ ul {
     align-items: center;
     justify-content: space-between;
     width: 99.2%;
-    border-style: solid;
-    border-color: #cecece60;
-    border-right-color: transparent;
-    border-left-color: transparent;
-    border-bottom-width: 0.5px;
+    border:none;
+    height: 60px;
 }
 
 .deleteButton {
@@ -244,6 +243,7 @@ input[type="checkbox"] {
     border-radius: 50%;
     border-style: solid;
     border-color: #b3b3b3;
+    border-width: 1px;
 }
 
 .customcheckbox:hover {
@@ -253,6 +253,7 @@ input[type="checkbox"] {
 
 .customcheckbox-checked {
     align-self: center;
+    border-width: 1px;
     justify-content: center;
     display: flex;
     height: 30px;
@@ -261,88 +262,112 @@ input[type="checkbox"] {
     border-radius: 50%;
     border-style: solid;
     border-color: #5D0E41;
-    cursor:pointer;
-    font-family: Arial,sans-serif;
-    color:#00224D;
-    font-size:22px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    color: #00224D;
+    font-size: 22px;
 }
+
 #modal {
-    display: none; 
+    display: none;
     position: fixed;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(107, 107, 107, 0.4); 
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    background-color: rgba(107, 107, 107, 0.4);
     z-index: 2;
 }
+
 .modal-content {
-    margin:auto;
+    margin: auto;
     display: flex;
-    position:fixed;
-    width:300px;
-    height:350px;
-    top:20%;
-    border-radius:4px; 
+    position: fixed;
+    width: 300px;
+    height: 350px;
+    top: 20%;
+    border-radius: 4px;
     background-color: white;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color:#F15E5E;
+    color: #F15E5E;
 }
-.modal-header{
-    display:flex;
+
+.modal-header {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .modal-header h4 {
-    color:#636363;
-    font-size:26px;
+    color: #636363;
+    font-size: 26px;
     text-align: center;
-    margin-top:20px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
-.modal-body{
+
+.modal-body {
     color: #999999;
-    overflow:auto;
+    overflow: auto;
     align-items: center;
     text-align: center;
-    font-size:14px;
+    font-size: 14px;
     margin-bottom: 20px;
 }
-.modal-button{
-    display:inline-block;
+
+.modal-button {
+    display: inline-block;
 }
-.modal-button button{
+
+.modal-button button {
     cursor: pointer;
-    margin-left:5px;
-    margin-right:5px;
-    font-size:1rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 1rem;
     font-weight: 400;
     text-decoration: none;
     color: #fff;
-    border:none;
+    border: none;
     font-family: "Varela Round", sans-serif;
-    border-radius:4px;
+    border-radius: 4px;
     min-width: 120px;
-    min-height:40px;
+    min-height: 40px;
 }
+
 #cancel-delete {
-    background:#c4c4c4;
+    background: #c4c4c4;
 }
-#cancel-delete:hover{
-    background-color:#838383;
+
+#cancel-delete:hover {
+    background-color: #838383;
 }
+
 #confirm-delete {
     background-color: #f38282;
 }
+
 #confirm-delete:hover {
     background-color: #f05345;
 }
+
 .inter-font {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 30;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 30;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+.clear-completed-button{
+    width:109.08px;
+    height:19px;
+}
+.clear-completed-button:hover{
+    border-width: 1px;
+    border-color: #b3666a;
+    border-style:solid;
+    border-radius:4px;
 }

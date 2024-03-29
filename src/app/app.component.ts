@@ -1,7 +1,6 @@
-import { Component, ChangeDetectorRef, Injectable, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { todowork } from './works';
+import { Component, ChangeDetectorRef, Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Router, RouterModule, RouterEvent, Event } from '@angular/router';
+import { Router, RouterModule, Event } from '@angular/router';
 import { AllWorkComponent } from './all-work/all-work.component';
 import { MyServices } from './service.module';
 

@@ -26,9 +26,10 @@ export class ActiveWorkComponent {
     var value=document.getElementById(i.toString());
     value.contentEditable="true";
     value.focus();
+
     value.addEventListener('blur',()=>{
       this.updateWork(i);
-    },false)
+    },{once:true});
   }
   updateWork(i:number){
     var value=document.getElementById(i.toString());
